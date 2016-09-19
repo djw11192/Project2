@@ -3,6 +3,7 @@ class MembersController < ApplicationController
   end
 
   def account
+    @member = Member.find(params[:id])
   end
 
   def join #step1
@@ -22,7 +23,7 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
 
     if @member.save
-      redirect_to account_path
+      redirect_to "/account/#{@member.id}"
     end
   end
 

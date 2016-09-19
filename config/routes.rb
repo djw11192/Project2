@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get '/join' => 'members#join', as: 'join'
   get '/join/add' => 'members#add', as: 'add'
   get '/join/confirm' => 'members#confirm', as: 'confirm'
-  get '/account' => 'members#account', as: 'account'
+
+  resources :members
+   get '/account/:id' => 'members#account', as: 'account'
 
   resources :sessions, only: [:new, :create]
 
