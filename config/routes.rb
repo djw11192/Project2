@@ -1,31 +1,22 @@
 Rails.application.routes.draw do
-  get 'products/index'
 
-  get 'products/show'
+  get '/subscribe/step1' => 'examplequeries#step1'
+  get '/subscribe/step2' => 'examplequeries#step2'
+  get '/subscribe/step3' => 'examplequeries#step3'
+  get '/subscribe' => 'examplequeries#create'
 
-  get 'products/new'
+  root 'sessions#new'
+  # get '/account' => 'sessions#create'
+  get '/join' => 'members#join', as: 'join'
+  get '/join/add' => 'members#add', as: 'add'
+  get '/join/confirm' => 'members#confirm', as: 'confirm'
+  get '/account' => 'members#account', as: 'account'
 
-  get 'products/create'
+  resources :sessions, only: [:new, :create]
 
-  get 'products/edit'
 
-  get 'products/update'
+  resources :members
 
-  get 'products/destroy'
-
-  get 'members/index'
-
-  get 'members/show'
-
-  get 'members/new'
-
-  get 'members/create'
-
-  get 'members/edit'
-
-  get 'members/update'
-
-  get 'members/destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

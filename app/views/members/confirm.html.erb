@@ -1,0 +1,7 @@
+
+<h1>3. Finish Up </h1>
+<%=form_for @member do |m| %>
+  Email: <%=m.text_field :email %><br>
+  Password: <%=m.password_field :password%> <br>
+  <%=m.submit 'Create Account'%>
+<%end%>

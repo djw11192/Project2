@@ -1,0 +1,5 @@
+<h1>You have selected <%= @selected_plan %></h1>
+<p>Find me in app/views/examplequeries/step2.html.erb</p>
+
+<%= link_to 'Include Spray Bottle', "/subscribe/step3?plan=#{@selected_plan}&addon=Spray Bottle" %>
+<%= link_to 'Include Erasers', "/subscribe/step3?plan=#{@selected_plan}&addon=Erasers" %>
