@@ -1,0 +1,16 @@
+<h1>Pick a New Plan</h1>
+
+<%=form_for @member do |m| %>
+<h3><%=m.hidden_field 'plan', :value => "Plan1".to_s%></h3>
+<%=m.submit 'Plan1'%>
+<%end%>
+
+<%=form_for @member do |m|%>
+<h3><%=m.hidden_field 'plan', :value => "Plan2".to_s%></h3>
+<%=m.submit 'Plan2'%>
+<%end%>
+
+<%=form_for @member do |m|%>
+<h3><%=m.hidden_field 'plan', :value => "plan3"%></h3>
+<%=m.submit 'Plan3'%>
+<%end%>

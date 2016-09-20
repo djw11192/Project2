@@ -6,13 +6,18 @@ Rails.application.routes.draw do
   get '/subscribe' => 'examplequeries#create'
 
   root 'sessions#new'
-  # get '/account' => 'sessions#create'
   get '/join' => 'members#join', as: 'join'
   get '/join/add' => 'members#add', as: 'add'
   get '/join/confirm' => 'members#confirm', as: 'confirm'
 
   resources :members
    get '/account/:id' => 'members#account', as: 'account'
+   get '/account/:id/plan' => 'members#change_plan', as: 'change_plan'
+   get '/account/:id/frequency' => 'members#change_frequency', as: 'change_frequency'
+   get '/account/:id/address' => 'members#change_address', as: 'change_address'
+   patch '/account/:id' => 'members#update'
+
+
 
   resources :sessions, only: [:new, :create]
 

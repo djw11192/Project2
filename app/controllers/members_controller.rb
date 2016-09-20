@@ -1,4 +1,5 @@
 class MembersController < ApplicationController
+  $guests = []
   def index
   end
 
@@ -7,12 +8,12 @@ class MembersController < ApplicationController
   end
 
   def join #step1
-    @selected_plan = params[:plan]
+    @member = Member.new
   end
 
   def add #step2
     @selected_plan = params[:plan]
-    @extra = params[:extra]
+    $guests = [{:plan =>"plan2", :frequency =>"monthly", :status => "guest"}]
   end
 
   def confirm #step3
@@ -25,24 +26,38 @@ class MembersController < ApplicationController
     # @member.plan = params[:plan]
     # @extra = Product.new(product_params)
 
-    if @member.save
-      @member.status = "active"
+    if @member.save 
       redirect_to "/account/#{@member.id}"
+
     end
   end
 
   def edit
+    @member = Member.find(params[:id])
+  end
+
+  def change_plan
+    @member = Member.find(params[:id])
   end
 
   def update
+    @member = Member.find(params[:id])
+
+    if @member.update_attributes(member_params)
+      redirect_to account_path
+    end
   end
 
   def destroy
   end
 
+  def add_info
+
+  end
+
   private
   def member_params
-    params.require(:member).permit(:email, :password, :name, :address, :plan)
+    params.require(:member).permit(:email, :password, :name, :address, :plan, :status, :frequency)
   end
   def product_params
   end

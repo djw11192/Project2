@@ -1,3 +1,6 @@
 <h1>My Account</h1>
 
-<%=@member.email%>
+<%=@member.email %><%=link_to "edit", "#"%><br>
+<%=@member.plan %><%=link_to "edit", change_plan_path%><br>
+<%=@member.frequency %><%=link_to "edit", "#"%><br>
+<%=@member.address %><%=link_to "edit", "#"%><br>
