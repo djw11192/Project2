@@ -12,17 +12,21 @@ class MembersController < ApplicationController
 
   def add #step2
     @selected_plan = params[:plan]
-    @extra = params[:extras]
+    @extra = params[:extra]
   end
 
   def confirm #step3
     @member = Member.new
+    @extra = Product.new
   end
 
   def create
     @member = Member.new(member_params)
+    # @member.plan = params[:plan]
+    # @extra = Product.new(product_params)
 
     if @member.save
+      @member.status = "active"
       redirect_to "/account/#{@member.id}"
     end
   end
@@ -38,7 +42,8 @@ class MembersController < ApplicationController
 
   private
   def member_params
-    params.require(:member).permit(:name, :email, :password, :address)
+    params.require(:member).permit(:email, :password, :name, :address, :plan)
   end
-
+  def product_params
+  end
 end
