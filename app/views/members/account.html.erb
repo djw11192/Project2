@@ -1,18 +1,33 @@
 
-<div class="productSection">
-<div class="productsSection col-md-7 col-md-offset-1">
-  
-</div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="page"><a href="#">Account</a></li>
+        <li class="page"><a href="#">Box</a></li>
+        <li class= "page"><%=link_to 'Logout', logout_path%></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+  <div class="productSection col-md-7 col-md-offset-1">
+  <%=link_to "ADD", "/account/#{@member.id}/add_extras?product=Erasers" %>
+  </div>
 
 
-<div class="sidebar col-md-4">
-<h1>My Account</h1>
+    <div class="sidebar col-md-4">
+      <h1>My Account</h1>
 
-Email: <%=@member.email %><%=link_to "edit", change_email_path%><br>
-Plan: <%=@member.plan %><%=link_to "edit", change_plan_path%><br>
-Frequency: <%=@member.frequency %><%=link_to "edit", change_frequency_path%><br>
-Shipping: <br><%=@member.address %><%=link_to "edit", change_address_path%><br>
-<br>
+        Email: <%=@member.email %><%=link_to "edit", change_email_path%><br>
+        Plan: <%=@member.plan %><%=link_to "edit", change_plan_path%><br>
+        Frequency: <%=@member.frequency %><%=link_to "edit", change_frequency_path%><br>
+        Shipping: <br><%=@member.address %><%=link_to "edit", change_address_path%><br>
+        <br>
 
-</div>
+    </div>
+  </div>
 </div>

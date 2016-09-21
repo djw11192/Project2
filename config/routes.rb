@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'orders/index'
+
   get '/subscribe/step1' => 'examplequeries#step1'
   get '/subscribe/step2' => 'examplequeries#step2'
   get '/subscribe/step3' => 'examplequeries#step3'
@@ -10,6 +12,10 @@ Rails.application.routes.draw do
   get '/join/add' => 'members#add', as: 'add'
   get '/join/confirm' => 'members#confirm', as: 'confirm'
 
+
+  get '/account/:id/add_extras' => 'orders#show_extra'
+  post '/account/:id/add_extras/:product' => 'orders#add_extra', as: 'add_extra'
+
   resources :members
    get '/account/:id' => 'members#account', as: 'account'
    get '/account/:id/email' => 'members#change_email', as: 'change_email'
@@ -17,6 +23,11 @@ Rails.application.routes.draw do
    get '/account/:id/frequency' => 'members#change_frequency', as: 'change_frequency'
    get '/account/:id/address' => 'members#change_address', as: 'change_address'
    patch '/account/:id' => 'members#update'
+
+   get '/logout' => 'sessions#destroy', as: 'logout'
+
+
+
 
 
 

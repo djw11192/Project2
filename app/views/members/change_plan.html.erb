@@ -1,3 +1,19 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="page"><%=link_to 'Account', account_path%></li>
+        <li class="page"><a href="#">Box</a></li>
+        <li class= "page"><a href="#">Logout</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+
 <h1>Pick a New Plan</h1>
 
 <%=form_for @member do |m| %>
@@ -14,3 +30,5 @@
 <h3><%=m.hidden_field 'plan', :value => "plan3"%></h3>
 <%=m.submit 'Plan3'%>
 <%end%>
+
+</div>

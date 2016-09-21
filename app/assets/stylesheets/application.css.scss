@@ -40,5 +40,13 @@ border: 5px solid black;
 .sidebar{
   // float: right;
   height: 700px;
-  background: grey;
+}
+
+.container{
+  background: url("Whiteboard.jpg");
+  background-size:cover;
+  margin-top: 50px;
+}
+nav{
+  display: block;
 }
