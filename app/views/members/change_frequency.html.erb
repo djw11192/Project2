@@ -1,0 +1,16 @@
+<h1>How Often Should We Ship?</h1>
+
+<%=form_for @member do |m| %>
+<h3><%=m.hidden_field 'frequency', :value => "Monthly".to_s%></h3>
+<%=m.submit 'Monthly'%>
+<%end%>
+
+<%=form_for @member do |m|%>
+<h3><%=m.hidden_field 'frequency', :value => "Every Other Month".to_s%></h3>
+<%=m.submit 'Every Other Month'%>
+<%end%>
+
+<%=form_for @member do |m|%>
+<h3><%=m.hidden_field 'frequency', :value => "Every 3 Months"%></h3>
+<%=m.submit 'Every 3 Months'%>
+<%end%>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :members
    get '/account/:id' => 'members#account', as: 'account'
+   get '/account/:id/email' => 'members#change_email', as: 'change_email'
    get '/account/:id/plan' => 'members#change_plan', as: 'change_plan'
    get '/account/:id/frequency' => 'members#change_frequency', as: 'change_frequency'
    get '/account/:id/address' => 'members#change_address', as: 'change_address'

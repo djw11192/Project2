@@ -11,8 +11,12 @@
 Email: <%=@member.email %><%=link_to "edit", change_email_path%><br>
 Plan: <%=@member.plan %><%=link_to "edit", change_plan_path%><br>
 Frequency: <%=@member.frequency %><%=link_to "edit", change_frequency_path%><br>
-Shipping: <br><%=@member.address %><%=link_to "edit", change_address_path%><br>
 <br>
+<%=form_for @member do |m|%>
+  <%=m.text_area :address%>
+  <%=m.submit 'Save'%>
+  <%end%>
+
 
 </div>
 </div>

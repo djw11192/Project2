@@ -1,5 +1,4 @@
 class MembersController < ApplicationController
-  $guests = []
   def index
   end
 
@@ -13,7 +12,6 @@ class MembersController < ApplicationController
 
   def add #step2
     @selected_plan = params[:plan]
-    $guests = [{:plan =>"plan2", :frequency =>"monthly", :status => "guest"}]
   end
 
   def confirm #step3
@@ -26,7 +24,7 @@ class MembersController < ApplicationController
     # @member.plan = params[:plan]
     # @extra = Product.new(product_params)
 
-    if @member.save 
+    if @member.save
       redirect_to "/account/#{@member.id}"
 
     end
@@ -37,6 +35,18 @@ class MembersController < ApplicationController
   end
 
   def change_plan
+    @member = Member.find(params[:id])
+  end
+
+  def change_email
+    @member = Member.find(params[:id])
+  end
+
+  def change_frequency
+    @member = Member.find(params[:id])
+  end
+
+  def change_address
     @member = Member.find(params[:id])
   end
 
