@@ -1,3 +1,3 @@
 class Product < ActiveRecord::Base
-  belongs_to  :members
+  has_many :orders
 end
