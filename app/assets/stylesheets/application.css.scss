@@ -16,3 +16,24 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+body{
+  background: url("markers2.jpg");
+}
+
+.signup{
+height: 490px;
+width: 517px;
+background: rgba(12, 103, 175, 0.97);
+margin-top: 50px;
+border-radius: 30px;
+border: 5px solid black;
+}
+.homeText{
+  color: white;
+}
+#company{
+  text-align: center;
+  color: white;
+
+}

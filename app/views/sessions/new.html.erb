@@ -1,9 +1,17 @@
-<h1>This is the log in page</h1>
-<%=form_tag sessions_path do %>
-  Email: <%= text_field_tag :email, params[:email]%><br>
-  Password: <%= password_field_tag :password, nil%><br>
-  <%=submit_tag 'Log in' %>
-<%end %>
+
+<div id="container">
+  <div class= "signup col-md-5 col-md-offset-3">
+    <h1 id="company">Monthly Markers</h1>
+    <%=form_tag sessions_path do %>
+    <div class="homeText">
+      Email: <%= text_field_tag :email, params[:email]%><br>
+      Password: <%= password_field_tag :password, nil%><br>
+    </div>
+      <%=submit_tag 'Log In' %>
+    <%end %>
 
 
-<%= link_to 'sign up', '/join' %>
+  <%=link_to "Signup", '/join', class: 'btn btn-primary'%>
+
+  </div>
+</div>
