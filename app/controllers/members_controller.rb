@@ -6,6 +6,12 @@ class MembersController < ApplicationController
   def account
     redirect_to account_path(current_member) unless current_member.id == params[:id].to_i
     @member = Member.find(params[:id])
+    if @member.order.frequency == 'Monthly'
+      # @recurrence = "day #{I18n.l "2014-10-04T22:49:02+04:00".to_time, format: "%d"} of each month"
+      @recurrence = "day #{I18n.l "2014-10-04T22:49:02+04:00".to_time, format: "%d"} of each month"
+    elsif @member.order.frequency == 'Every Other Month'
+      @recurrence = "day #{I18n.l "2014-10-04T22:49:02+04:00".to_time, format: "%d" } of every other month"
+    end
 
     #generate a picture for the plan the member is on
     @pic = @member.order.order_products.first.product.image
@@ -85,7 +91,6 @@ class MembersController < ApplicationController
   end
 
   def add_info
-
   end
 
   private

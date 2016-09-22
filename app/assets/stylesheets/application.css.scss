@@ -40,8 +40,8 @@ position: absolute;
 .container{
   background: url("Whiteboard.jpg");
   background-size:cover;
-  margin-top: 50px;
-  height: 500px;
+  height: 689px;
+  // margin-top: 50px;
 }
 #container{
   margin: 0 auto;
@@ -64,4 +64,12 @@ nav{
 .login, .join{
   width:200px;
   margin-bottom: 20px;
+}
+.planPic{
+  width: 270px;
+  height: 300px;
+  border: 10px solid black;
+  border-radius: 20px;
+  padding: 0;
+
 }

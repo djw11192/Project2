@@ -4,18 +4,18 @@
 
 <%=form_for @member do |m| %>
   <h2>Account Info:</h2>
-    Email: <%=m.text_field :email %><br>
-    Password: <%=m.password_field :password%> <br>
+    Email: <%=m.text_field :email, class: "form-control" %><br>
+    Password: <%=m.password_field :password, class: "form-control"%> <br>
     <%= m.hidden_field :plan, :value => params[:plan].to_s%> <br>
     <!-- <%= m.hidden_field :status, :value => "active".to_s%> <br>
     <%= m.hidden_field :frequency, :value => "monthly".to_s%> <br> -->
   <hr>
   <h2>Shipping:</h2>
-    Address: <%=m.text_field :address %><br>
+    Address: <%=m.text_area :address, class: "form-control" %><br>
   <hr>
   <h2>Billing:</h2>
-      Card # <%=m.text_field :cc %><br>
+      Card # <%=m.text_field :cc, class: "form-control" %><br>
     <hr>
-      <%=m.submit 'Create Account'%><br>
+      <%=m.submit 'Create Account', class: "btn btn-primary btn-lg"%><br>
     <hr>
 <%end%>
