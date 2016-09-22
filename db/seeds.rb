@@ -9,9 +9,12 @@
 if Product.destroy_all
 
 Product.create([
-  {name: "Extra Markers", price: "3"},
-  {name: "Erasers", price: "5"},
-  {name: "Eraser Fluid", price: "7"}
+  {name: "Cleaning Cloth", price: "3", image: "black.jpg"},
+  {name: "Erasers", price: "5", image: "black.jpg"},
+  {name: "Eraser Fluid", price: "7", image: "black.jpg"},
+  {name: "Black Markers", price: "3", image: "black.jpg"},
+  {name: "Fine Point Markers", price: "5", image: "black.jpg"},
+  {name: "Multicolor Markers", price: "4", image: "black.jpg"}
   ])
 
 end

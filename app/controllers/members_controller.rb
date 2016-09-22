@@ -27,7 +27,13 @@ class MembersController < ApplicationController
     # @extra = Product.new(product_params)
 
     if @member.save
-      session[:member_id] = @member.id
+      session[:member_id] = @member.id #member is logged in and goes to account page
+      @member.order = Order.create({plan: params[:member][:plan], frequency: "Monthly"})
+      @member.order.order_products.create({product: Product.find_by_name(params[:plan])})
+      p "**************************************"
+      p params
+      p "**************************************"
+
       redirect_to "/account/#{@member.id}"
 
     end
@@ -70,7 +76,7 @@ class MembersController < ApplicationController
 
   private
   def member_params
-    params.require(:member).permit(:email, :password, :name, :address, :plan, :status, :frequency)
+    params.require(:member).permit(:email, :password, :name, :address)
   end
   def product_params
   end

@@ -7,8 +7,8 @@
     Email: <%=m.text_field :email %><br>
     Password: <%=m.password_field :password%> <br>
     <%= m.hidden_field :plan, :value => params[:plan].to_s%> <br>
-    <%= m.hidden_field :status, :value => "active".to_s%> <br>
-    <%= m.hidden_field :frequency, :value => "monthly".to_s%> <br>
+    <!-- <%= m.hidden_field :status, :value => "active".to_s%> <br>
+    <%= m.hidden_field :frequency, :value => "monthly".to_s%> <br> -->
   <hr>
   <h2>Shipping:</h2>
     Address: <%=m.text_field :address %><br>

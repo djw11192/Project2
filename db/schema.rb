@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160922001108) do
+ActiveRecord::Schema.define(version: 20160922010506) do
 
   create_table "members", force: :cascade do |t|
     t.string   "name"
@@ -19,9 +19,6 @@ ActiveRecord::Schema.define(version: 20160922001108) do
     t.string   "password_digest"
     t.string   "cc"
     t.text     "address"
-    t.string   "plan"
-    t.string   "frequency"
-    t.string   "status"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -39,9 +36,10 @@ ActiveRecord::Schema.define(version: 20160922001108) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "member_id"
-    t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "plan"
+    t.string   "frequency"
   end
 
   add_index "orders", ["member_id"], name: "index_orders_on_member_id"

@@ -11,8 +11,8 @@
       <h1>My Account</h1>
 
         Email: <%=@member.email %><%=link_to "edit", change_email_path%><br>
-        Plan: <%=@member.plan %><%=link_to "edit", change_plan_path%><br>
-        Frequency: <%=@member.frequency %><%=link_to "edit", change_frequency_path%><br>
+        Plan: <%=@member.order.plan %><%=link_to "edit", change_plan_path%><br>
+        Frequency: <%=@member.order.frequency %><%=link_to "edit", change_frequency_path%><br>
         Shipping: <br><%=@member.address %><%=link_to "edit", change_address_path%><br>
         <br>
 
