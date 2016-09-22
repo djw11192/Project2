@@ -28,8 +28,14 @@ class MembersController < ApplicationController
 
     if @member.save
       session[:member_id] = @member.id #member is logged in and goes to account page
+
+      #create an order for the member who signs up
       @member.order = Order.create({plan: params[:member][:plan], frequency: "Monthly"})
-      @member.order.order_products.create({product: Product.find_by_name(params[:plan])})
+
+      @test = params[:member][:plan]
+
+      #create order_product join table so member can add products to their order
+      @member.order.order_products.create({product: Product.find_by_name(@test), quantity: 1})
       p "**************************************"
       p params
       p "**************************************"

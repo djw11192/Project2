@@ -2,13 +2,13 @@
 
 
 <div class="container">
+  <h1>My Account</h1>
   <div class="productSection col-md-7 col-md-offset-1">
   <%=link_to "ADD", "/account/#{@member.id}/add_extras?product=Erasers" %>
   </div>
 
 
     <div class="sidebar col-md-4">
-      <h1>My Account</h1>
 
         Email: <%=@member.email %><%=link_to "edit", change_email_path%><br>
         Plan: <%=@member.order.plan %><%=link_to "edit", change_plan_path%><br>
