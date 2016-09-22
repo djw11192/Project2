@@ -1,8 +1,10 @@
 class MembersController < ApplicationController
+  before_action :authorize, only: [:account, :change_plan, :change_email, :change_address, :change_frequency]
   def index
   end
 
   def account
+    redirect_to account_path(current_member) unless current_member.id == params[:id].to_i
     @member = Member.find(params[:id])
   end
 
@@ -25,6 +27,7 @@ class MembersController < ApplicationController
     # @extra = Product.new(product_params)
 
     if @member.save
+      session[:member_id] = @member.id
       redirect_to "/account/#{@member.id}"
 
     end

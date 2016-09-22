@@ -17,9 +17,6 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-body{
-  background: url("markers2.jpg");
-}
 
 .signup{
 height: 490px;
@@ -28,9 +25,6 @@ background: rgba(12, 103, 175, 0.97);
 margin-top: 50px;
 border-radius: 30px;
 border: 5px solid black;
-}
-.homeText{
-  color: white;
 }
 #company{
   text-align: center;
@@ -46,7 +40,15 @@ border: 5px solid black;
   background: url("Whiteboard.jpg");
   background-size:cover;
   margin-top: 50px;
+  height: 500px;
+}
+#container{
+  margin: 0 auto;
+  background: url("markers2.jpg");
 }
 nav{
   display: block;
+}
+.plans{
+  height: 200px;
 }

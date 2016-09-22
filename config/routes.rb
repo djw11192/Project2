@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
   root 'sessions#new'
   get '/join' => 'members#join', as: 'join'
-  get '/join/add' => 'members#add', as: 'add'
-  get '/join/confirm' => 'members#confirm', as: 'confirm'
+  get '/join/add' => 'members#confirm', as: 'confirm'
+  # get '/join/confirm' => 'members#confirm', as: 'confirm'
 
 
   get '/account/:id/add_extras' => 'orders#show_extra'
@@ -25,13 +25,7 @@ Rails.application.routes.draw do
    patch '/account/:id' => 'members#update'
 
    get '/logout' => 'sessions#destroy', as: 'logout'
-
-
-
-
-
-
-  resources :sessions, only: [:new, :create]
+   resources :sessions, only: [:new, :create]
 
 
   resources :members

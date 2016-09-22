@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    @hide_nav = true
   end
 
   def create
@@ -15,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    session[:member_id] = nil
     redirect_to root_path
   end
 end
