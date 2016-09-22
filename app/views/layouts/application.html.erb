@@ -15,8 +15,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li class="page"><a href="#">Account</a></li>
-            <li class="page"><a href="#">Box</a></li>
+            <li class="page"><%=link_to 'Account', account_path %></li>
+            <li class="page"><%=link_to 'Box', show_box_path %></li>
             <% if logged_in? %>
               <li class= "page"><%=link_to 'Logout', logout_path %></li>
             <% else %>
@@ -27,7 +27,11 @@
       </div><!-- /.container-fluid -->
     </nav>
   <% end %>
+<%unless @hide_container%>
+<div class ="container">
+<%end%>
 <%= yield %>
+</div>
 
 </body>
 </html>

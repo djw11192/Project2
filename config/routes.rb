@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   get '/account/:id/add_extras' => 'orders#show_extra'
   post '/account/:id/add_extras/:product' => 'orders#add_extra', as: 'add_extra'
+  get '/account/:id/box' => 'order_products#show_box', as: 'show_box'
+
 
   resources :members
    get '/account/:id' => 'members#account', as: 'account'
@@ -23,7 +25,7 @@ Rails.application.routes.draw do
    get '/account/:id/plan' => 'members#change_plan', as: 'change_plan'
    get '/account/:id/frequency' => 'members#change_frequency', as: 'change_frequency'
    get '/account/:id/address' => 'members#change_address', as: 'change_address'
-   patch '/account/:id' => 'members#update'
+   patch '/account/:id' => 'members#update', as: 'box'
 
 
 

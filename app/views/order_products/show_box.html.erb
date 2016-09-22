@@ -1,0 +1,10 @@
+
+<h1>Your Box</h1><br>
+
+  <%=@plan + " Markers"%>
+  $<%=@order_products.first.product.price%><br>
+
+<%@order_products[1..@order_products.count].each_with_index do |op, i|%>
+  <%=op.product.name%>
+  $<%=op.product.price%><br>
+<%end%>

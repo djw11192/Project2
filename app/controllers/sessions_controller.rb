@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def new
     @hide_nav = true
+    @hide_container = true
   end
 
   def create
