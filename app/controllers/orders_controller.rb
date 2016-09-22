@@ -4,14 +4,12 @@ class OrdersController < ApplicationController
   end
 
   def add_extra
-    @member = Member.find(params[:id])
-    @product = Product.find_by_name(params[:product]).id
-    # Order.create({member_id: params[:id], product_id: @product, quantity: 1})
-    # p params
-    # redirect_to account_path
+    @member= Member.find(params[:id])
+    @product = Product.find_by_name(params[:product])
 
-    @member.products << Product.find_by_name(params[:product])
-    redirect_to account_path
+    #add product to order_products
+    @member.order.order_products.create({product: @product, quantity: 1})
+    redirect_to account_path(current_member)
   end
   def change_plan
     @order = Member.find(params[:id]).order

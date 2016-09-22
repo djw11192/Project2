@@ -14,6 +14,7 @@ class MembersController < ApplicationController
 
   def join #step1
     @member = Member.new
+    @hide_nav = true
   end
 
   def add #step2
@@ -23,6 +24,7 @@ class MembersController < ApplicationController
   def confirm #step3
     @member = Member.new
     @extra = Product.new
+    @hide_nav = true
   end
 
   def create
