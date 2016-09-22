@@ -65,7 +65,7 @@ class MembersController < ApplicationController
   end
 
   def change_frequency
-    @member = Member.find(params[:id])
+    @order = Member.find(params[:id]).order
   end
 
   def change_address

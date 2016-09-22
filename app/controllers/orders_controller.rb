@@ -15,10 +15,20 @@ class OrdersController < ApplicationController
   def change_plan
     @order = Member.find(params[:id]).order
   end
+
+  def change_frequency
+    @order = Member.find(params[:id]).order
+  end
+
   def update
     @order= Member.find(current_member).order
-    if @order.update(plan: params[:order][:plan])
+
+    if @order.update(order_params)
       redirect_to account_path(current_member)
     end
+  end
+  private
+  def order_params
+    params.require(:order).permit(:plan, :frequency)
   end
 end

@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get '/account/:id/add_extras' => 'orders#show_extra'
   post '/account/:id/add_extras/:product' => 'orders#add_extra', as: 'add_extra'
   get '/account/:id/box' => 'order_products#show_box', as: 'show_box'
+  # get '/account/:id/frequency' => 'orders#change_frequency', as: 'change_frequency'
+
+
 
 
   resources :members
