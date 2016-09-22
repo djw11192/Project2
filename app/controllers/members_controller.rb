@@ -6,6 +6,10 @@ class MembersController < ApplicationController
   def account
     redirect_to account_path(current_member) unless current_member.id == params[:id].to_i
     @member = Member.find(params[:id])
+
+    #generate a picture for the plan the member is on
+    @pic = @member.order.order_products.first.product.image
+    # @pic = Product.find_by_name(@member.order.plan)
   end
 
   def join #step1
