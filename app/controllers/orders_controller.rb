@@ -13,4 +13,13 @@ class OrdersController < ApplicationController
     @member.products << Product.find_by_name(params[:product])
     redirect_to account_path
   end
+  def change_plan
+    @order = Member.find(params[:id]).order
+  end
+  def update
+    @order= Member.find(current_member).order
+    if @order.update(plan: params[:order][:plan])
+      redirect_to account_path(current_member)
+    end
+  end
 end

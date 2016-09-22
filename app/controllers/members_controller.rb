@@ -54,11 +54,12 @@ class MembersController < ApplicationController
   end
 
   def change_plan
-    @member = Member.find(params[:id])
+    @order = Member.find(params[:id]).order
   end
 
   def change_email
     @member = Member.find(params[:id])
+    @pic = @member.order.order_products.first.product.image
   end
 
   def change_frequency
@@ -67,6 +68,7 @@ class MembersController < ApplicationController
 
   def change_address
     @member = Member.find(params[:id])
+    @pic = @member.order.order_products.first.product.image
   end
 
   def update

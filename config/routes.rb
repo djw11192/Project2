@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/join/add' => 'members#confirm', as: 'confirm'
   # get '/join/confirm' => 'members#confirm', as: 'confirm'
 
+  resources :orders
 
   get '/account/:id/add_extras' => 'orders#show_extra'
   post '/account/:id/add_extras/:product' => 'orders#add_extra', as: 'add_extra'
@@ -23,6 +24,8 @@ Rails.application.routes.draw do
    get '/account/:id/frequency' => 'members#change_frequency', as: 'change_frequency'
    get '/account/:id/address' => 'members#change_address', as: 'change_address'
    patch '/account/:id' => 'members#update'
+
+
 
    get '/logout' => 'sessions#destroy', as: 'logout'
    resources :sessions, only: [:new, :create]

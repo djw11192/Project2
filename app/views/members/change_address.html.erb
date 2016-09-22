@@ -13,22 +13,23 @@
 </nav>
 
 <div class="container">
-<div class="productSection col-md-7 col-md-offset-1">
+<h1>My Account</h1>
+  <div class="productSection col-md-7 col-md-offset-1">
 
 </div>
 
 
 <div class="sidebar col-md-4">
-<h1>My Account</h1>
 
+<%=image_tag(@pic, class: "member-pic")%><br>
 Email: <%=@member.email %><%=link_to "edit", change_email_path%><br>
-Plan: <%=@member.plan %><%=link_to "edit", change_plan_path%><br>
-Frequency: <%=@member.frequency %><%=link_to "edit", change_frequency_path%><br>
+Plan: <%=@member.order.plan %><%=link_to "edit", change_plan_path%><br>
+Frequency: <%=@member.order.frequency %><%=link_to "edit", change_frequency_path%><br>
 <br>
 <%=form_for @member do |m|%>
   <%=m.text_area :address%>
   <%=m.submit 'Save'%>
-  <%end%>
+<%end%>
 
   </div>
 </div>
