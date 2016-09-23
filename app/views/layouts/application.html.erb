@@ -7,14 +7,16 @@
   <%= csrf_meta_tags %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
-<body>
-
 <%=render 'layouts/nav' %>
-<%unless @hide_container%>
+<body class="wholebody">
+
+<%if !@hide_container%>
 <div class ="container">
-<%end%>
-<%= yield %>
-</div>
+  <%= yield %>
+  </div>
+<%else%>
+  <%= yield %>
+  <%end%>
 
 </body>
 </html>
