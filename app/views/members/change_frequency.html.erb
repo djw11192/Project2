@@ -1,17 +1,23 @@
 
-<h1>How Often Should We Ship?</h1>
+<h1 class="text-center whiteBoardHeader">How Often Should We Ship?</h1>
 
+<div class="text-center">
 <%=form_for @order do |o| %>
-<h3><%=o.hidden_field 'frequency', :value => "Monthly".to_s%></h3>
-<%=o.submit 'Monthly'%>
+  <%=o.hidden_field 'frequency', :value => "Monthly".to_s%>
+  <%=o.submit 'Monthly', class: "btn btn-lg btn-primary bigSelect"%>
 <%end%>
+</div>
 
+<div class="text-center">
 <%=form_for @order do |o|%>
-<h3><%=o.hidden_field 'frequency', :value => "Every Other Month".to_s%></h3>
-<%=o.submit 'Every Other Month'%>
+  <%=o.hidden_field 'frequency', :value => "Every Other Month".to_s%>
+  <%=o.submit 'Every Other Month', class: "btn btn-lg btn-primary bigSelect"%>
 <%end%>
+</div>
 
+<div class="text-center">
 <%=form_for @order do |o|%>
-<h3><%=o.hidden_field 'frequency', :value => "Every 3 Months".to_s%></h3>
-<%=o.submit 'Every 3 Months'%>
+  <%=o.hidden_field 'frequency', :value => "Every 3 Months".to_s%>
+  <%=o.submit 'Every 3 Months', class: "btn btn-lg btn-primary bigSelect"%>
 <%end%>
+</div>

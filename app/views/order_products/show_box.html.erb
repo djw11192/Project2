@@ -1,10 +1,23 @@
 
-<h1>Your Box</h1><br>
+<h1 class="text-center whiteBoardHeader">Your Box</h1><br>
 
-  <%=@plan + " Markers"%>
-  $<%=@order_products.first.product.price%><br>
+<div class="col-md-6 col-md-offset-3">
+  <div class="infoLine">
+    <p class="col-md-10"><%=@plan + " Markers"%></p>
+    <p class="col-md-2">$<%=@order_products.first.product.price%></p><br>
+  </div>
 
-<%@order_products[1..@order_products.count].each_with_index do |op, i|%>
-  <%=op.product.name%>
-  $<%=op.product.price%><br>
-<%end%>
+  <%@order_products[1..@order_products.count].each_with_index do |op, i|%>
+  <div class="infoLine">
+    <p class="col-md-10"><%=op.product.name%></p>
+    <p class="col-md-2">$<%=op.product.price%></p><br>
+  </div>
+    <%@order_products.first.product.price = @order_products.first.product.price + op.product.price%>
+  <%end%>
+  <hr>
+  <div class="infoLine">
+    <p class="col-md-10">Total:</p>
+    <p class="col-md-2">$<%=@order_products.first.product.price %></p>
+  </div>
+
+</div>
