@@ -23,13 +23,47 @@
     <div class="text-center">
         <%=image_tag(@pic, class: "member-pic")%><br>
     </div>
-        Plan: <%=@member.order.plan %><%=link_to "edit", change_plan_path%><br>
-        Frequency: <%=@member.order.frequency %><%=link_to "edit", change_frequency_path%><br>
-        <!-- Recurring order on day <%=@member.created_at.strftime("%d")%> of each month <br>       <br> -->
-        Bill Date: <%= @recurrence %>
-        <br>
-        Email: <%=@member.email %><%=link_to "edit", change_email_path%><br>
-        Shipping: <br><%=@member.address %><%=link_to "edit", change_address_path%><br>
-
+    <div class="account">
+      <div class="infoLine">
+        <div class="col-md-8">
+          Plan: <%=@member.order.plan %>
+        </div>
+        <div class="col-md-4 text-right">
+          <%=link_to "edit", change_plan_path%>
+        </div>
+    <br>
+      <div class="infoLine">
+        <div class="col-md-8">
+          Frequency: <%=@member.order.frequency %>
+        </div>
+        <div class="col-md-4 text-right">
+          <%=link_to "edit", change_frequency_path%>
+        </div>
+      </div>
+    <br>
+      <div class="infoLine">
+        <div class="col-md-8">
+          Bill Date: <%=@recurrence %>
+        </div>
+      </div>
+    <br>
+      <div class="infoLine">
+        <div class="col-md-8">
+          Email: <%=@member.email %>
+        </div>
+        <div class="col-md-4 text-right">
+          <%=link_to "edit", change_email_path%>
+        </div>
+      </div>
+    <br>
+      <div class="infoLine">
+        <div class="col-md-8">
+          Shipping: <br>
+          <%=@member.address %>
+        </div>
+        <div class="col-md-4 text-right">
+          <%=link_to "edit", change_address_path%>
+        </div>
+      </div>
   </div>
 </div>
