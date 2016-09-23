@@ -1,14 +1,28 @@
 
-  <h1 class="text-center">My Account</h1>
+<h1 class="text-center whiteBoardHeader">My Account</h1>
+
 <div class="productSection col-md-7 col-md-offset-1">
-    <%=link_to "ADD", "/account/#{@member.id}/add_extras?product=Erasers" %><br>
-    <%=link_to "ADD", "/account/#{@member.id}/add_extras?product=Cleaning Cloth" %><br>
-    <%=link_to "ADD", "/account/#{@member.id}/add_extras?product=Eraser Fluid" %><br>
+  <div>
+    <%=image_tag "erasers.jpg", class: "product-pic"%>
+    <%=link_to "ADD", "/account/#{@member.id}/add_extras?product=Erasers", class: "add btn btn-primary btn-lg" %><br>
+  </div>
+
+  <div>
+    <%=image_tag "cloth.jpg", class: "product-pic"%>
+    <%=link_to "ADD", "/account/#{@member.id}/add_extras?product=Cleaning Cloth", class: "add btn btn-primary btn-lg" %><br>
+  </div>
+
+  <div>
+    <%=image_tag "spray.jpg", class: "product-pic"%>
+    <%=link_to "ADD", "/account/#{@member.id}/add_extras?product=Eraser Fluid", class: "add btn btn-primary btn-lg" %><br>
+  </div>
 </div>
 
 
   <div class="sidebar col-md-4">
+    <div class="text-center">
         <%=image_tag(@pic, class: "member-pic")%><br>
+    </div>
         Plan: <%=@member.order.plan %><%=link_to "edit", change_plan_path%><br>
         Frequency: <%=@member.order.frequency %><%=link_to "edit", change_frequency_path%><br>
         <!-- Recurring order on day <%=@member.created_at.strftime("%d")%> of each month <br>       <br> -->
