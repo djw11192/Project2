@@ -2,16 +2,23 @@
 <h1 class="text-center whiteBoardHeader">My Account</h1>
 
 <div class="productSection col-md-7 col-md-offset-1">
+
+  <p class="planPrice abs extraPrice text-right">$5</p>
   <div>
     <%=image_tag "erasers.jpg", class: "product-pic"%>
-    <%=link_to "ADD", "/account/#{@member.id}/add_extras?product=Erasers", class: "add btn btn-primary btn-lg" %><br>
+    <!-- <p class="planPrice text-right">$5</p> -->
+    <%=link_to "ADD", "/account/#{@member.id}/add_extras?product=Erasers", class: "add btn btn-primary btn-lg" %>
+
   </div>
 
+  <p class="planPrice abs extraPrice text-right">$3</p>
   <div>
     <%=image_tag "cloth.jpg", class: "product-pic"%>
     <%=link_to "ADD", "/account/#{@member.id}/add_extras?product=Cleaning Cloth", class: "add btn btn-primary btn-lg" %><br>
+    <!-- <p class="planPrice abs text-right">$7</p> -->
   </div>
 
+  <p class="planPrice abs extraPrice text-right">$3</p>
   <div>
     <%=image_tag "spray.jpg", class: "product-pic"%>
     <%=link_to "ADD", "/account/#{@member.id}/add_extras?product=Eraser Fluid", class: "add btn btn-primary btn-lg" %><br>
