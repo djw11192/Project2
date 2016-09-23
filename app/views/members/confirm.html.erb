@@ -4,6 +4,7 @@
 <div class ="col-md-4 col-md-offset-4">
 <%=form_for @member do |m| %>
   <h2 class="h2s">Account Info:</h2>
+    <p class="error"><%= flash[:error] %></p>
     Email: <%=m.text_field :email, class: "form-control" %>
     Password: <%=m.password_field :password, class: "form-control"%>
     <%= m.hidden_field :plan, :value => params[:plan].to_s%>
