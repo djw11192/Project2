@@ -6,12 +6,9 @@ class MembersController < ApplicationController
   def account
     redirect_to account_path(current_member) unless current_member.id == params[:id].to_i
     @member = Member.find(params[:id])
-    if @member.order.frequency == 'Monthly'
       # @recurrence = "day #{I18n.l "2014-10-04T22:49:02+04:00".to_time, format: "%d"} of each month"
-      @recurrence = "Day #{I18n.l "#{@member.created_at}".to_time, format: "%d"} of every month"
-    elsif @member.order.frequency == 'Every Other Month'
-      @recurrence = "Day #{I18n.l "#{@member.created_at}".to_time, format: "%d" } of every other month"
-    end
+    @recurrence = "Day #{I18n.l "#{@member.created_at}".to_time, format: "%d"}"
+
 
     #generate a picture for the plan the member is on
     @pic = @member.order.plan + ".jpg"
@@ -28,32 +25,39 @@ class MembersController < ApplicationController
   end
 
   def confirm #step3
-    @member = Member.new
-    @extra = Product.new
-    @hide_nav = true
+      @member = Member.new
+      @extra = Product.new
+      @hide_nav = true
   end
 
   def create
+    if Member.find_by_email(params[:member][:email])
+
+      flash[:error] = "Email already used"
+      redirect_to confirm_path
+    else
     @member = Member.new(member_params)
+
     # @member.plan = params[:plan]
     # @extra = Product.new(product_params)
 
-    if @member.save
-      session[:member_id] = @member.id #member is logged in and goes to account page
+      if @member.save
+        session[:member_id] = @member.id #member is logged in and goes to account page
 
-      #create an order for the member who signs up
-      @member.order = Order.create({plan: params[:member][:plan], frequency: "Monthly"})
+        #create an order for the member who signs up
+        @member.order = Order.create({plan: params[:member][:plan], frequency: "Monthly"})
 
-      @test = params[:member][:plan]
+        @test = params[:member][:plan]
 
-      #create order_product join table so member can add products to their order
-      @member.order.order_products.create({product: Product.find_by_name(@test), quantity: 1})
-      p "**************************************"
-      p params
-      p "**************************************"
+        #create order_product join table so member can add products to their order
+        @member.order.order_products.create({product: Product.find_by_name(@test), quantity: 1})
+        p "**************************************"
+        p params
+        p "**************************************"
 
-      redirect_to "/account/#{@member.id}"
+        redirect_to "/account/#{@member.id}"
 
+      end
     end
   end
 
