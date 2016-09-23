@@ -1,25 +1,35 @@
 
-<h1 class="text-center">Pick A Plan</h1>
+<h1 class="text-center whiteBoardHeader">Change Plans</h1>
 
-  <div class="plans">
-<%= image_tag('Regular.jpg', class: "col-md-2 col-md-offset-1")%><br>
-<%= image_tag('Fine.jpg', class: "col-md-2 col-md-offset-1")%><br>
-<%= image_tag('Multicolor.jpg', class: "col-md-2 col-md-offset-1")%><br>
-  </div>
   <div class="select">
-    <%=form_for @order do |o| %>
+    <div class="col-md-4 planCenter">
+      <%=image_tag('Regular.jpg', class: "planPic")%><br>
+      <h3 class="text-center">Regular</h3>
+      <%=form_for @order do |o| %>
       <h3><%=o.hidden_field 'plan', :value => "Regular".to_s%></h3>
-      <%=o.submit 'Regular', class: 'col-md-2 col-md-offset-1 text-center'%>
+      <%=o.submit 'Regular', class: 'text-center btn btn-primary btn-lg'%>
+      <br>
+      <h3 class="text-center planPrice">$3</h3>
     <%end%>
+  </div>
 
+  <div class="col-md-4 planCenter">
+    <%=image_tag('Fine.jpg', class: "planPic")%><br>
+    <h3 class="text-center">Fine</h3>
     <%=form_for @order do |o|%>
       <h3><%=o.hidden_field 'plan', :value => "Fine".to_s%></h3>
-      <%=o.submit 'Fine', class: 'col-md-2 col-md-offset-1 text-center'%>
+      <%=o.submit 'Fine', class: 'text-center btn btn-primary btn-lg'%>
+      <h3 class="text-center planPrice">$4</h3>
     <%end%>
+  </div>
 
+  <div class="col-md-4 planCenter">
+    <%=image_tag('Multicolor.jpg', class: "planPic")%><br>
+    <h3 class="text-center">Multicolor</h3>
     <%=form_for @order do |o|%>
       <h3><%=o.hidden_field 'plan', :value => "Multicolor".to_s%></h3>
-      <%=o.submit 'Multicolor', class: 'col-md-2 col-md-offset-1 text-center'%>
+      <%=o.submit 'Multicolor', class: 'text-center btn btn-primary btn-lg'%>
+      <h3 class="text-center planPrice">$5</h3>
     <%end%>
-
   </div>
+</div>
