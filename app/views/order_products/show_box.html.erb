@@ -3,21 +3,21 @@
 
 <div class="col-md-6 col-md-offset-3">
   <div class="infoLine">
-    <p class="col-md-10"><%=@plan + " Markers"%></p>
-    <p class="col-md-2">$<%=@order_products.first.product.price%></p><br>
+    <h3 class="col-md-10"><%=@plan + " Markers"%></h3>
+    <h3 class="col-md-2">$<%=@order_products.first.product.price%></h3><br>
   </div>
 
   <%@order_products[1..@order_products.count].each_with_index do |op, i|%>
   <div class="infoLine">
-    <p class="col-md-10"><%=op.product.name%></p>
-    <p class="col-md-2">$<%=op.product.price%></p><br>
+    <h3 class="col-md-10"><%=op.product.name%></h3>
+    <h3 class="col-md-2">$<%=op.product.price%></h3><br>
   </div>
     <%@order_products.first.product.price = @order_products.first.product.price + op.product.price%>
   <%end%>
   <hr>
   <div class="infoLine">
-    <p class="col-md-10">Total:</p>
-    <p class="col-md-2">$<%=@order_products.first.product.price %></p>
+    <h3 class="col-md-10">Total:</h3>
+    <h3 class="col-md-2">$<%=@order_products.first.product.price %></h3>
   </div>
 
 </div>
