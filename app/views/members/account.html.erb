@@ -27,7 +27,7 @@
         Frequency: <%=@member.order.frequency %><%=link_to "edit", change_frequency_path%><br>
         <!-- Recurring order on day <%=@member.created_at.strftime("%d")%> of each month <br>       <br> -->
         Bill Date: <%= @recurrence %>
-
+        <br>
         Email: <%=@member.email %><%=link_to "edit", change_email_path%><br>
         Shipping: <br><%=@member.address %><%=link_to "edit", change_address_path%><br>
 

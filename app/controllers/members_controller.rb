@@ -8,9 +8,9 @@ class MembersController < ApplicationController
     @member = Member.find(params[:id])
     if @member.order.frequency == 'Monthly'
       # @recurrence = "day #{I18n.l "2014-10-04T22:49:02+04:00".to_time, format: "%d"} of each month"
-      @recurrence = "day #{I18n.l "2014-10-04T22:49:02+04:00".to_time, format: "%d"} of each month"
+      @recurrence = "Day #{I18n.l "#{@member.created_at}".to_time, format: "%d"} of every month"
     elsif @member.order.frequency == 'Every Other Month'
-      @recurrence = "day #{I18n.l "2014-10-04T22:49:02+04:00".to_time, format: "%d" } of every other month"
+      @recurrence = "Day #{I18n.l "#{@member.created_at}".to_time, format: "%d" } of every other month"
     end
 
     #generate a picture for the plan the member is on
