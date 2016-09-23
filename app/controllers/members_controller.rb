@@ -34,7 +34,7 @@ class MembersController < ApplicationController
     if Member.find_by_email(params[:member][:email])
 
       flash[:error] = "Email already used"
-      redirect_to confirm_path
+      redirect_to(:back)
     else
     @member = Member.new(member_params)
 
