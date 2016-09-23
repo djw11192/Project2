@@ -1,12 +1,12 @@
 
 <h1 class="text-center">Pick A Plan</h1>
 
-  <div class="plans">
+  <div class="plans row">
 <%= image_tag('black.jpg', class: "col-sm-2 col-md-offset-1 planPic")%><br>
 <%= image_tag('fine_point.jpg', class: "col-sm-2 col-md-offset-1 planPic")%><br>
 <%= image_tag('multicolor.gif', class: "col-sm-2 col-md-offset-1 planPic")%><br>
   </div>
-  <div class="select">
+  <div class="select row">
 <%=link_to 'Select', "/join/add?plan=Regular", class: 'col-md-2 col-md-offset-1 text-center btn btn-primary btn-lg'%>
 <%=link_to 'Select', "/join/add?plan=Fine", class: 'col-md-2 col-md-offset-1 text-center btn btn-primary btn-lg'%>
 <%=link_to 'Select', "/join/add?plan=Multicolor", class: 'col-md-2 col-md-offset-1 text-center btn btn-primary btn-lg'%>

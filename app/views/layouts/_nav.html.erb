@@ -1,0 +1,19 @@
+<% unless @hide_nav %>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="page"><%=link_to 'Account', account_path %></li>
+          <li class="page"><%=link_to 'Box', show_box_path %></li>
+          <% if logged_in? %>
+            <li class= "page"><%=link_to 'Logout', logout_path %></li>
+          <% else %>
+            <li class= "page"><%=link_to 'Login', new_session_path %></li>
+          <% end %>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+<% end %>
