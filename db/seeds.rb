@@ -9,12 +9,12 @@
 if Product.destroy_all
 
 Product.create([
-  {name: "Cleaning Cloth", price: "3", image: "black.jpg"},
-  {name: "Erasers", price: "5", image: "black.jpg"},
-  {name: "Eraser Fluid", price: "7", image: "black.jpg"},
+  {name: "Cleaning Cloth", price: "3", image: "cloth.jpg"},
+  {name: "Erasers", price: "5", image: "erasers.jpg"},
+  {name: "Eraser Fluid", price: "7", image: "spray.jpg"},
   {name: "Regular", price: "3", image: "black.jpg"},
-  {name: "Fine", price: "5", image: "black.jpg"},
-  {name: "Multicolor", price: "4", image: "black.jpg"}
+  {name: "Fine", price: "4", image: "fine_point.jpg"},
+  {name: "Multicolor", price: "5", image: "multicolor.gif"}
   ])
 
 end
