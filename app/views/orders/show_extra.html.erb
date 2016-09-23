@@ -1,6 +1,11 @@
 <h1 class="text-center whiteBoardHeader">Add this?</h1>
-<%= image_tag(@product.image, class: "planPic")%>
-<%=@product.name%><br>
-$<%=@product.price%><br>
+<div class="col-md-6 col-md-offset-3">
+  <div class="col-md-8 text-center">
+    <%= image_tag(@product.image, class: "member-pic")%>
+    <h2><%=@product.name%></h2><br>
+  </div>
 
-<%=button_to "Confirm", add_extra_path(params[:id], params[:product])%>
+  <div class="col-md-4 planPrice text-center">$<%=@product.price%><br>
+    <%=button_to "Confirm", add_extra_path(params[:id], params[:product]), class: "btn btn-lg btn-primary lowerBtn"%>
+  </div>
+</div>
