@@ -14,7 +14,7 @@ class MembersController < ApplicationController
     end
 
     #generate a picture for the plan the member is on
-    @pic = @member.order.order_products.first.product.image
+    @pic = @member.order.plan + ".jpg"
     # @pic = Product.find_by_name(@member.order.plan)
   end
 
@@ -67,7 +67,7 @@ class MembersController < ApplicationController
 
   def change_email
     @member = Member.find(params[:id])
-    @pic = @member.order.order_products.first.product.image
+    @pic = @member.order.plan + ".jpg"
   end
 
   def change_frequency
@@ -76,7 +76,7 @@ class MembersController < ApplicationController
 
   def change_address
     @member = Member.find(params[:id])
-    @pic = @member.order.order_products.first.product.image
+    @pic = @member.order.plan + ".jpg"
   end
 
   def update
