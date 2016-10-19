@@ -1,30 +1,39 @@
 
-<h1 class="text-center whiteBoardHeader">Pick A Plan</h1>
+<h1 class="text-center whiteBoardHeader">1. Pick A Plan</h1>
 
 
-<div class="col-md-4 planCenter">
+<div class="col-md-4 planCenter" planName="Regular">
   <%= image_tag('Regular.jpg', class: "planPic")%>
   <br>
   <h3 class="text-center">Regular</h3>
-  <%=link_to 'Select', "/join/add?plan=Regular", class: 'text-center btn btn-primary btn-lg'%>
+  <%=link_to 'Select', "/join/add", class: 'text-center btn btn-primary btn-lg plan'%>
   <br>
   <h3 class="text-center planPrice">$3</h3>
 </div>
 
-<div class="col-md-4 planCenter">
+<div class="col-md-4 planCenter" planName="Fine">
   <%= image_tag('Fine.jpg', class: "planPic")%>
   <br>
   <h3 class="text-center">Fine</h3>
-  <%=link_to 'Select', "/join/add?plan=Fine", class: 'text-center btn btn-primary btn-lg'%>
+  <%=link_to 'Select', "/join/add", class: 'text-center btn btn-primary btn-lg plan'%>
   <br>
   <h3 class="text-center planPrice">$4</h3>
 </div>
 
-<div class="col-md-4 planCenter">
+<div class="col-md-4 planCenter" planName="Multicolor">
   <%= image_tag('Multicolor.jpg', class: "planPic")%>
   <br>
   <h3 class="text-center">Multicolor</h3>
-  <%=link_to 'Select', "/join/add?plan=Multicolor", class: 'text-center btn btn-primary btn-lg'%>
+  <%=link_to 'Select', "/join/add", class: 'text-center btn btn-primary btn-lg plan'%>
   <br>
   <h3 class="text-center planPrice">$5</h3>
 </div>
+
+<script type="text/javascript">
+  $('.plan').each(function(){
+    $(this).on('click', function(){
+      console.log($(this).parent().attr('planName'))
+      localStorage.plan = $(this).parent().attr('planName')
+    })
+  })
+</script>

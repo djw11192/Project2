@@ -2,14 +2,10 @@ Rails.application.routes.draw do
 
   get 'orders/index'
 
-  get '/subscribe/step1' => 'examplequeries#step1'
-  get '/subscribe/step2' => 'examplequeries#step2'
-  get '/subscribe/step3' => 'examplequeries#step3'
-  get '/subscribe' => 'examplequeries#create'
-
   root 'sessions#new'
   get '/join' => 'members#join', as: 'join'
-  get '/join/add' => 'members#confirm', as: 'confirm'
+  get '/join/add' => 'members#add', as: 'add'
+  get '/join/confirm' => 'members#confirm', as: 'confirm'
   # get '/join/confirm' => 'members#confirm', as: 'confirm'
 
   resources :orders

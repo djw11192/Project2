@@ -1,8 +1,8 @@
 class MembersController < ApplicationController
   before_action :authorize, only: [:account, :change_plan, :change_email, :change_address, :change_frequency]
-  def index
+  def add
+    @hide_nav = true
   end
-
   def account
     redirect_to account_path(current_member) unless current_member.id == params[:id].to_i
     @member = Member.find(params[:id])
@@ -20,14 +20,13 @@ class MembersController < ApplicationController
     @hide_nav = true
   end
 
-  def add #step2
-    @selected_plan = params[:plan]
-  end
+
 
   def confirm #step3
       @member = Member.new
       @extra = Product.new
       @hide_nav = true
+
   end
 
   def create
@@ -36,6 +35,7 @@ class MembersController < ApplicationController
       flash[:error] = "Email already used"
       redirect_to(:back)
     else
+
     @member = Member.new(member_params)
 
     # @member.plan = params[:plan]
@@ -48,9 +48,24 @@ class MembersController < ApplicationController
         @member.order = Order.create({plan: params[:member][:plan], frequency: "Monthly"})
 
         @test = params[:member][:plan]
+        @extra_one = params[:member][:product_one]
+        @extra_two = params[:member][:product_two]
+        @extra_three = params[:member][:product_three]
+        @extra_test = Product.find_by_name(@extra_one)
+
 
         #create order_product join table so member can add products to their order
         @member.order.order_products.create({product: Product.find_by_name(@test), quantity: 1})
+        if @extra_one != ""
+          @member.order.order_products.create({product: Product.find_by_name(@extra_one), quantity: 1})
+        end
+        if @extra_two != ""
+          @member.order.order_products.create({product: Product.find_by_name(@extra_two), quantity: 1})
+        end
+        if @extra_three != ""
+          @member.order.order_products.create({product: Product.find_by_name(@extra_three), quantity: 1})
+        end
+
         p "**************************************"
         p params
         p "**************************************"
@@ -99,8 +114,9 @@ class MembersController < ApplicationController
 
   private
   def member_params
-    params.require(:member).permit(:email, :password, :name, :address)
+    params.require(:member).permit(:email, :password, :name, :address, :cc)
   end
   def product_params
+    params.require(:order_product).permit(:product)
   end
 end

@@ -15,3 +15,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+console.log("testing js")
+
+$('.picOne').on('click', function(){
+console.log("hello")
+})
