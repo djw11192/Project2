@@ -13,7 +13,7 @@ From the Account page, a Member can edit any/all settings and add "extra" produc
 
 ##To Join
 
-Visit https://evening-beyond-24916.herokuapp.com/
+Visit https://afternoon-wave-81388.herokuapp.com/
 
 ##Development Process
 
